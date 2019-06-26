@@ -76,14 +76,15 @@ class TicTacToe
     won? || draw? || full?
   end
 
-  def winner(board)
-    @board = board
+  def winner
     WIN_COMBINATIONS.detect do |i|
       if board[i[0]] == "X" && board[i[1]] == "X" && board[i[2]] == "X"
         return "X"
       elsif
         board[i[0]] == "O" && board[i[1]] == "O" && board[i[2]] == "O"
         return "O"
+      else
+        nil
       end
     end
   end

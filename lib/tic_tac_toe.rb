@@ -40,6 +40,14 @@ class TicTacToe
     index.between?(0,8) && !position_taken?(board, index)
   end
 
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
+  end
+
+  def current_player
+    turn_count % 2 == 0 ? "X" : "O"
+  end
+
   def turn(board)
     @board = board
     puts 'Please enter 1-9:'
@@ -51,14 +59,6 @@ class TicTacToe
     else
       turn(board)
     end
-  end
-
-  def turn_count
-    @board.count{|token| token == "X" || token == "O"}
-  end
-
-  def current_player
-    turn_count % 2 == 0 ? "X" : "O"
   end
 
   def won?(board)
